@@ -1,0 +1,1036 @@
+/* Import website font */
+
+body {margin: 0; padding: 0; overflow: hidden;font-family: 'Oxygen-Regular', sans-serif}
+#gameUI {background-image: url(images/bg.png); margin: 0; padding: 0; ; overflow: hidden;}
+
+
+#startUI {
+	position:relative;
+	height : 100%;
+	width : 100%;
+}
+
+video {
+	position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
+#titleGame{
+	position: absolute;
+	width : 640px;
+	font-weight: 900;
+	font-size : 30px;
+	padding: 0px;
+	left : 30%;
+	color : #fa7900;
+	display : none;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	animation : titleMove 1s forwards;
+}
+
+button{
+	position : absolute;
+	background-color: rgb(76, 94, 175);
+  border: none;
+  color: rgb(214, 161, 15);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+	cursor: pointer;
+	width : 200px;
+	font-weight: bold;
+	height : 70;
+  transition-duration: 0.4s;
+}
+
+button:active {
+  transform: translateY(4px);
+}
+
+#standard:hover{
+	box-shadow: 0 20px 16px 0 rgba(6, 197, 255, 0.712),0 17px 50px 0 rgba(2, 112, 255, 0.19);
+	background-color: rgb(255, 16, 156);
+	color: rgb(0, 4, 255);
+}
+
+#custom:hover, #submitradio:hover  {	
+	box-shadow: 0 20px 16px 0 rgba(6, 255, 39, 0.712),0 17px 50px 0 rgba(15, 197, 39, 0.19);
+	background-color: rgb(203, 247, 10);
+}
+
+#standard{
+	top : 40%;
+}
+
+#go {
+	left : 45%;
+	background-color:rgb(243, 33, 180);
+	color: rgb(31, 126, 63);
+
+}
+
+#custom {
+	background-color: rgb(145, 9, 236);
+	color: rgb(255, 0, 149);
+	top: 40%;
+}
+
+#submitRadio{
+	position : absolute;
+	background-color: rgb(12, 240, 80);
+  color: rgb(248, 1, 186);
+	width : 130px;
+	height : 50px;
+	left: 45%;
+	display : none;
+}
+
+#return{
+	position : absolute;
+	width : 50;
+	height : 30px;
+	display : none;
+	top : 62%;
+}
+
+#return :hover{
+	cursor: pointer;
+}
+
+#radioType{
+	display:none;
+	position : absolute;
+	left : 20%;
+	top : 35%;
+}
+
+.radioT {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+	user-select: none;
+	color : rgb(255, 51, 0);
+	font-weight: bold;
+}
+
+.radioT input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.radioT:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.radioT input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+
+#inputType:hover{
+	cursor : auto;
+}
+
+#inputType{
+	display : none;
+	position : absolute;
+	top : 18%;
+	animation: movingCustomUI2st 1s forwards;
+	font-weight: bold;
+}
+
+#element1st{
+	display : none;
+	top : 1%;
+	position: absolute;
+	animation : movingCustomUI1st 1s forwards;
+	color : rgb(255, 175, 4);
+	font-weight: bold;
+}
+
+input[type=number]{
+	width: 40px;
+} 
+
+.tab {
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: #1a1818;
+}
+
+.tablinks{
+	background-color: inherit;
+	position : static;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+	padding: 5px 16px;
+	color : rgb(92, 165, 24);
+	font-size : 13px;
+	width : 100px;
+	height : 30px;
+  transition: 0.3s;
+}
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button.active {
+  background-color: #ccc;
+}
+
+.tabItem {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+	border-top: none;
+	background: #b1e98c;
+	color : rgb(139, 76, 240);
+}
+
+.animaAppear{
+	animation: appearEff 1s;
+}
+
+#go{
+	position : absolute;
+	left : 44%;
+	top : 40%;
+	animation : appearEff 1s; 
+}
+
+#go:hover{
+	background: rgb(216, 231, 228); ;
+}
+
+#affterGame{
+	width : 100%;
+	height : 100%;	
+	position: relative;
+	display : none;
+}
+
+#textAG{
+top : 30%;
+width : 500px;
+position: absolute;
+font-weight: bold;
+font-family: "Comic Sans MS";
+font-size : 24px;	
+color : rgb(233, 179, 1);
+animation: textAGMove 1s  forwards;
+}
+
+#btAG{
+	top : 50%;
+	background-color: rgb(140, 198, 245);
+	color: rgb(250, 250, 250);
+	animation: buttonAGMove 1s  forwards;
+}
+
+#btAG:hover{
+	background-color: rgb(34, 48, 59);
+}
+
+@keyframes textAGMove{
+	0%  {left :0%; opacity: 0;}
+	100%  {left :35%; opacity: 1;};
+}
+
+@keyframes buttonAGMove{
+	0%  {left :100%; opacity: 0;}
+	100%  {left :45%; opacity: 1;};
+}
+
+@keyframes titleMove{
+	0%  {top :0%; opacity: 0;}
+	100%  {top :20%; opacity: 1;};
+}
+
+@keyframes appearEff{
+	0%   {filter: blur(20px);}
+  20% {filter: blur(10px);}
+   40% {filter: blur(5px);}
+    50% {filter: blur(3px);}
+  100%  {filter: blur(0px);}
+}
+
+@keyframes movingCustomUI1st{
+	0%   {left: 0%;opacity: 0;}
+  100%  {left: 40%; opacity: 1;}
+}
+
+@keyframes movingCustomUI2st{
+	0%   {left: 100%;opacity: 0;}
+  100%  {left: 40%; opacity: 1;}
+}
+
+@keyframes movingStandardButton{
+	0%   {left: 0%;filter: blur(20px);}
+  20% {filter: blur(10px);}
+   40% {filter: blur(5px);}
+    50% {filter: blur(3px);}
+  100%  {left: 35%; filter: blur(0px);}
+}
+
+@keyframes movingCustomButton{
+	0%   {left : 100%;filter: blur(20px);}
+  20% {filter: blur(10px);}
+   40% {filter: blur(5px);}
+    50% {filter: blur(3px);}
+  100%  {left : 54%; filter: blur(0px);}
+}
+
+@keyframes movingRadio{
+	0%   {left : 20%;filter: blur(20px);}
+  20% {filter: blur(10px);}
+   40% {filter: blur(5px);}
+    50% {filter: blur(3px);}
+  100%  {left:45%;filter: blur(0px);}
+}
+
+@keyframes movingButtonSubmit{
+	0%   {top : 100%;filter: blur(20px);}
+  20% {filter: blur(10px);}
+   40% {filter: blur(5px);}
+    50% {filter: blur(3px);}
+  100%  {top : 60%; filter: blur(0px);}
+}
+
+@keyframes movingReturn{
+	0%   {left : 0%;filter: blur(20px);}
+  20% {filter: blur(10px);}
+   40% {filter: blur(5px);}
+    50% {filter: blur(3px);}
+  100%  {left: 40%;filter: blur(0px);}
+}
+
+input[type='number'] {
+	-moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+
+aside {width: 200px; position: fixed; height: 100vh; left: 100%; margin-left: -240px; background-color: #ddd; border-left: 5px solid #bbb; padding: 20px;}
+#closeside {float: right; font-weight: bold; cursor: pointer;}
+
+.character {position: absolute; top: 200px; left: 200px; display: block;}
+.character .body {width: 32px; height: 32px; background-image: url(images/body0.png); background-position: 64px 0px; margin-top: 14px; }
+.character .head {width: 32px; height: 32px; background-image: url(images/head0.png); margin-bottom: 0;position: absolute; background-repeat: no-repeat; background-position: 0px -64px;}
+
+aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom: 20px; overflow: auto;}
+.heads li, .bodies li {width: 32px; height: 32px; background-position: 0 -64px; float: left; cursor: pointer; border: 2px solid #ddd; margin-right: 4px;}
+.heads li:hover, .bodies li:hover {border: 2px solid red;}
+#head0 {background-image: url(images/head0.png);}
+
+#head1 {background-image: url(images/head1.png);}
+#head2 {background-image: url(images/head2.png);}
+#head3 {background-image: url(images/head3.png);}
+#head4 {background-image: url(images/head4.png);}
+
+.bodies li {background-position: 64px 0px;}
+#body0 {background-image: url(images/body0.png);}
+#body1 {background-image: url(images/body1.png);}
+#body2 {background-image: url(images/body2.png);}
+#body3 {background-image: url(images/body3.png);}
+#body4 {background-image: url(images/body4.png);}
+
+.tree {position: absolute; left: 400px; top: 300px;}
+
+#opponent {left: 500px; top: 500px;}
+#opponent .body {background-image: url(images/body1.png);}
+#opponent .head {background-image: url(images/head1.png);}
+
+
+.enemy {position: absolute;}
+
+.enemy .head {
+	width: 32px;
+	height: 32px;
+	position: relative;
+}
+
+.enemy .body {
+	width: 32px;
+	height: 24px;
+	z-index:-1;
+
+}
+
+.enemy.grey .head {
+	background-image: url(images/baddygray.png);
+}
+
+.enemy.grey .body {
+	background-image: url(images/baddygray.png);
+	top: 32px;
+
+}
+
+.enemy.stand.up,.enemy.stand.down,.enemy.walk.down,.enemy.walk.up {width: 64px; height: 64px;}
+.enemy.stand.left,.enemy.stand.right,.enemy.walk.left,.enemy.walk.right {width: 64px; height: 64px;}
+
+.enemy {
+	overflow: hidden;
+}
+
+.enemy.stand.left .head {
+	margin-left: 16px;
+	background-position: -32px 0;
+}
+
+.enemy.stand.left .body {
+	margin-left: 18px;
+	width: 25px;
+	margin-top: -6px;
+	background-position: -88px -56px;
+}
+
+.enemy.stand.right .head {
+	background-position: -96px 0;
+}
+
+.enemy.stand.right .body {
+	margin-left: 4px;
+	width: 25px;
+	margin-top: -6px;
+	background-position: -88px -32px;
+}
+
+.enemy.stand.down .head {
+	background-position: -64px 0;
+	margin-left: 6px ;
+}
+
+.enemy.stand.down .body {
+	margin-top: -10px;
+	width: 44px;
+	height: 26px;
+	background-position: -44px -32px;
+}
+
+.enemy.stand.up .head {
+	margin-left: 6px;
+	background-position: 0px 0;
+}
+
+.enemy.stand.up .body {
+	margin-top: -12px;
+	width: 44px;
+	height: 26px;
+	background-position: 0px -32px;
+}
+
+.enemy.walk.up .head {
+	margin-left: 6px;
+	animation: headbob 0.5s infinite;
+	background-position: 0px 0;
+}
+
+.enemy.walk.up .body {
+	margin-top: -12px;
+	width: 44px;
+	height: 26px;
+	background-position: 0px -32px;
+	animation: enemywalkup 1s steps(1) infinite;
+}
+
+@keyframes enemywalkup {
+   0%, 100% { background-position: 0px -32px; }
+     50% { background-position: 0px -57px; height: 32px; margin-top: -16px;}
+}
+
+.enemy.walk.down .head {
+
+	margin-left: 6px;
+	animation: headbob 0.5s infinite;
+	background-position: -64px 0;
+}
+
+.enemy.walk.down .body {
+	margin-top: -10px;
+	width: 44px;
+	height: 26px;
+	background-position: -44px -32px;
+	animation: enemywalkdown 1s steps(1) infinite;
+}
+
+@keyframes enemywalkdown {
+   0%, 100% { background-position: -44px -32px; }
+     50% { background-position: -44px -57px; height: 25px; margin-top: -12px; }
+}
+
+.enemy.walk.left .head {
+	animation: headbob 0.5s infinite;
+	background-position: -32px 0;
+}
+
+.enemy.walk.left .body {
+	margin-left: 4px;
+	width: 25px;
+	margin-top: -6px;
+
+	background-position: -88px -56px;
+	animation: enemywalkleft 1s steps(1) infinite;
+}
+
+@keyframes enemywalkleft {
+   0%, 100% { background-position: -88px -56px; }
+     50% { background-position: -32px -90px; height: 25px; height: 30px;
+	width: 32px; margin-left: -0px; margin-top: -12px;}
+}
+
+.enemy.walk.right .head {
+	background-position: -96px 0;
+	animation: headbob 0.5s infinite;
+}
+
+.enemy.walk.right .body {
+	margin-left: 4px;
+	width: 25px;
+	margin-top: -6px;
+	background-position: -88px -32px;
+	animation: enemywalkright 1s steps(1) infinite;
+}
+
+@keyframes enemywalkright {
+   0%, 100% { background-position: -88px -32px; }
+     50% { background-position: 0px -90px; height: 25px; height: 30px;
+	width: 32px; margin-left: -0px; margin-top: -12px;}
+}
+
+.enemy.appear {
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	height: 56px;
+
+}
+
+.weapon.bow {
+	background-image: url(images/sprites.png);
+	background-position:  -55px -214px;
+	width: 16px;
+	height:32px;
+}
+
+.weapon {
+	display: none;
+	position: absolute;
+}
+
+.fire .weapon {
+	display: block;
+}
+
+.enemy.stand.left.fire .body {
+	background-position: -32px -90px;
+	margin-top: -8px;
+	margin-left: 16px;
+	width: 32px;
+	height: 31px;
+}
+
+.enemy.stand.right.fire .body {
+	background-position: 0px -90px;
+	margin-top: -8px;
+	margin-left: 0px;
+	width: 32px;
+	height: 30px;
+}
+
+.enemy.stand.down.fire .body {
+	background-position: -44px -57px;
+
+}
+
+.enemy.stand.up.fire .body {
+	background-position: 0px -57px;
+	margin-top: -16px;
+	height: 32px;
+}
+
+.enemy.walk.left.fire .weapon.bow, .enemy.stand.left.fire .weapon.bow {
+	top: 12px;
+	left: 2px;
+	z-index: -1;
+	animation: enemyfireleft 1s ease-in forwards;
+}
+
+.enemy.walk.right.fire .weapon.bow, .enemy.stand.right.fire .weapon.bow {
+	top: 12px;
+	left: 6px;
+	z-index: -1;
+	animation: enemyfireright 1s ease-in forwards;
+}
+
+.enemy.fire .weapon.bow, .enemy.stand.down.fire .weapon.bow {
+	top: 12px;
+	left: 6px;
+	z-index: 2;
+	animation: enemyfiredown 1s ease-in forwards;
+}
+
+.enemy.walk.up.fire .weapon.bow, .enemy.stand.up.fire .weapon.bow {
+	top: 12px;
+	left: 6px;
+	z-index: -1;
+	animation: enemyfireup 1s ease-in forwards;
+}
+
+@keyframes enemyfireright {
+	 0% { transform: rotate(90deg); margin-top: 6px; margin-left: 18px; }
+     50% { transform: rotate(0deg); margin-top: 0; margin-left: 24px;}
+     100% { transform: rotate(90deg); margin-top: 6px; margin-left: 18px; }
+}
+
+@keyframes enemyfireleft {
+	 0% { transform: rotate(90deg); margin-top: 6px; margin-left: 8px; }
+     50% { transform: rotate(180deg); margin-top: 0; margin-left: 0;}
+     100% { transform: rotate(90deg); margin-top: 6px; margin-left: 8px; }
+}
+
+@keyframes enemyfiredown {
+	 0% { transform: rotate(0deg); margin-top: 6px; margin-left: 18px; }
+     50% { transform: rotate(90deg); margin-top: 14px; margin-left: 6px;}
+     100% { transform: rotate(0deg); margin-top: 6px; margin-left: 18px; }
+}
+
+@keyframes enemyfireup {
+	 0% { transform: rotate(0deg); margin-top: 6px; margin-left: 24px; }
+     50% { transform: rotate(-90deg); margin-top: -22px; margin-left: 8px;}
+     100% { transform: rotate(0deg); margin-top: 6px; margin-left: 24px; }
+}
+
+.character.fire.stand.right .bow, .character.fire.walk.right .bow {
+	top: 12px;
+	left: 6px;
+	z-index: -1;
+	animation: enemyfireright 0.2s ease-in forwards;
+}
+
+.character.fire.stand.down .bow, .character.fire.walk.down .bow {
+	top: 12px;
+	left: 0px;
+	z-index: 1;
+	animation: enemyfiredown 0.2s ease-in forwards;
+}
+
+.character.fire.stand.left .bow, .character.fire.walk.left .bow {
+	top: 8px;
+	left: -16px;
+	z-index: -1;
+	animation: enemyfireleft 0.2s ease-in forwards;
+}
+
+.character.fire.stand.up .bow, .character.fire.walk.up .bow {
+	top: 12px;
+	left: 6px;
+	z-index: -2;
+	animation: enemyfireup 0.2s ease-in forwards;
+}
+
+.character.fire.stand.right .body {
+	background-position: -96px -192px;
+	margin-top: 14px;
+}
+
+.character.fire.stand.left .body {
+	background-position: -32px -192px;
+	margin-top: 14px;
+}
+
+.character.fire.stand.up .body {
+	background-position: 0px -192px;
+	margin-top: 14px;
+}
+
+.character.fire.stand.down .body {
+	background-position: -64px -192px;
+	margin-top: 14px;
+}
+
+.enemy.appear .head {
+	margin-top: 120px;
+	animation-delay: 35s;
+	animation: enemystand 1s ease-in 3s forwards;
+}
+
+.enemy.hide .head {
+	animation: enemyhide 1s ease-in forwards;
+}
+
+@keyframes enemystand {
+	 0% { margin-top: 120px; }
+     100% { margin-top: 0;}
+}
+
+@keyframes enemyhide {
+	 0% { margin-top: 0px; }
+     100% { margin-top: 120px;}
+}
+
+.enemy.appear.left:before {
+	margin-left: 12px;
+}
+
+.enemy.appear:before {
+	content: "";
+	width: 32px; height: 24px;
+	background-image: url(images/sprites.png);
+	background-position: -96px -82px;
+	display: block;
+	position: absolute;
+	z-index: 999;
+	margin-left: 6px;
+	margin-top:  32px;
+	animation: shakebush 1s steps(1) 3;
+}
+
+.enemy.hide:before {
+	content: "";
+	width: 32px; height: 24px;
+	background-image: url(images/sprites.png);
+	background-position: -96px -82px;
+	display: block;
+	position: absolute;
+	z-index: 999;
+	margin-left: 6px;
+	margin-top:  32px;
+	animation: shakebush2 1s steps(1) 3, removebush 3s 3s forwards;
+}
+
+.arrow {
+	background-image: url(images/sprites.png);
+	width: 32px;
+	height: 10px;
+	position: absolute;
+	background-position: 0px -401px;
+}
+
+.arrow.right {
+
+}
+
+.arrow.left {
+	transform: rotate(180deg)
+}
+
+.arrow.up {
+	transform: rotate(-90deg)
+}
+
+.arrow.down {
+	transform: rotate(90deg)
+}
+
+@keyframes shakebush {
+   0%, 100% { background-position: -96px -82px; }
+     50% { background-position: -96px -106px;}
+}
+
+@keyframes shakebush2 {
+   0%, 100% { background-position: -96px -82px; }
+     50% { background-position: -96px -106px;}
+}
+
+@keyframes removebush {
+   0%{ opacity: 1; }
+     100% { opacity: 0;}
+}
+
+.character.stand.up .head {
+	background-position: 0px 0px;
+}
+
+.character.stand.down .head {
+	background-position: 0px -64px;
+}
+
+.character.stand.left .head {
+	background-position: 0px -32px;
+}
+
+.character.stand.right .head {
+	background-position: 0px -96px;
+}
+
+.character.stand.up .body {
+	background-position: 0px 0px;
+}
+
+.character.stand.down .body {
+	background-position: -64px 0px;
+}
+
+.character.stand.left .body {
+	background-position: -32px 0px;
+}
+
+.character.stand.right .body {
+	background-position: -96px 0px;
+}
+
+.character.walk.up .head {
+	background-position: 0px 0px;
+	animation: headbob 0.5s infinite;
+}
+
+.character.walk.up .body {
+    animation: walkup 1s steps(3) infinite;
+}
+
+.character.walk.down .head {
+	background-position: 0px -64px;
+	animation: headbob 0.75s infinite;
+}
+
+.character.walk.down .body {
+    animation: walkdown 1s steps(3) infinite;
+}
+
+.character.walk.left .head {
+	background-position: 0px -32px;
+	margin-top: -3px;
+	margin-left: -2px;
+	animation: headbob2 0.75s infinite;
+}
+
+.character.walk.left .body {
+    animation: walkleft 1s steps(3) infinite;
+}
+
+@keyframes walkleft {
+   0%, 100% { background-position:  -32px  -32px; }
+     50% { background-position: -32px -128px; }
+}
+
+.character.walk.right .head {
+	background-position: 0px -96px;
+	margin-top: -3px;
+	margin-left: 4px;
+	animation: headbob3 0.75s infinite;
+}
+
+.character.walk.right .body {
+    animation: walkright 1s steps(3) infinite;
+}
+
+@keyframes walkright {
+   0%, 100% { background-position:  -96px  -32px; }
+     50% { background-position: -96px -128px; }
+}
+
+@keyframes walkup {
+   0%, 100% { background-position:  0px  -32px; }
+     50% { background-position: 0px -128px; }
+}
+
+@keyframes walkdown {
+   0%, 100% { background-position:  -64px  -32px; }
+     50% { background-position: -64px -128px; }
+}
+
+@keyframes headbob {
+   0%, 100% { margin-top: 0px; }
+     50% { margin-top: 1px; }
+}
+
+@keyframes headbob2 {
+   0%, 100% { margin-left: -2px; }
+     50% { margin-left: 0px; }
+}
+
+@keyframes headbob3 {
+   0%, 100% { margin-left: 2px; }
+     50% { margin-left: 0px; }
+}
+
+.enemy.dead:before {
+	content: "";
+	width: 32px;
+	height: 32px;
+	display: block;
+	position: absolute;
+	margin-left: 8px;
+	margin-top: 12px;
+	background-image: url(images/sprites.png);
+	animation: enemydie 2s steps(1) forwards;
+	background-position: 0px -48px;
+}
+
+.enemy.dead .body, .enemy.dead .weapon, .enemy.dead .head {
+	animation: fadeout 0.5s forwards;
+}
+
+@keyframes fadeout {
+	0% {opacity: 1;}
+	100% {opacity: 0;}
+}
+
+@keyframes enemydie {
+	0%,20%,40%,60%,80% { background-position: 0px -48px; }
+	10%,30%,50%,70%,90% { background-position: -32px -48px; }
+	100% {opacity: 0;}
+}
+
+.character.dead .body {
+	animation: dead 1s steps(1) forwards;
+
+}
+
+.character.dead .body:after {
+	background-image: inherit;
+	content: "";
+	width: 32px;
+	height: 32px;
+	display: block;
+	background-position: 0px -480px;
+	margin-top: -12px;
+	position: absolute;
+	animation: deadarms 1s steps(1) forwards;
+}
+
+.character.stand.dead .head {
+	animation: deadhead 1s steps(1) forwards;
+}
+
+.character.hit.left .body {
+	animation: hitleft 0.2s steps(1) forwards;
+}
+
+.character.hit.left .head {
+	background-position: 0px -432px ;
+}
+
+.character.hit.right .head {
+	background-position: 0px -496px ;
+}
+
+.character.hit.right .body {
+	background-position: -96px -160px;
+	margin-left: -3px;
+}
+
+.character.hit.up .head {
+	background-position: 0px 0px ;
+}
+
+.character.hit.up .body {
+	background-position: -128px -160px;
+	margin-top: 16px;
+}
+
+.character.hit.down .head {
+	background-position: 0px -464px ;
+}
+
+.character.hit.down .body {
+	background-position: -64px -160px;
+	margin-top: 22px;
+}
+
+@keyframes hitleft {
+	0%,100% {background-position: -32px -160px;}
+}
+
+@keyframes dead {
+	 0% { background-position:  0px  -512px; }
+     25% { background-position: -32px -512px; }
+     50% { background-position:  -64px  -512px;   }
+     75% {background-position:  -96px  -512px;  }
+     100% {background-position:  -32px  -678px;  width: 64px;}
+}
+
+@keyframes deadhead {
+	 0% { background-position:  0px  0px; }
+     25% { background-position: 0px -432px; margin-top: -2px;}
+     50% { background-position:  0px  -464px;  margin-top: -2px }
+     75% {background-position:  0px  -496px;  }
+     100% {background-position:  0px  -528px; margin-top: 4px; margin-left: 16px; }
+}
+
+@keyframes deadarms {
+	 0% { background-position:  0px  -480px; }
+     25% { background-position: -32px -480px; }
+     50% { background-position:  -64px  -480px; }
+     75% { background-position:  -96px  -480px; }
+     100% {display: none;  opacity: 0;}
+}
+
+
+
+
+
+
+
+
+
+
+
+.hud {position: fixed; width: 100%;}
+ul {list-style-type: none;float: right; margin-right: 20px;}
+.health li {width: 40px; height: 48px; background-image: url(images/state.png); float:right; margin-left: 8px;}
+
+
+.tile {
+	width: 16px;
+	height: 16px;
+	background-image:url(images/tiles.png);
+	padding: 0;
+}
+
+
+.level {
+	border-collapse: collapse;
+}
+
+
+body:before {
+        content: " ";
+        position: absolute;
+        top: -100vh;
+        left: -100vh;
+        background-image:url(https://r.je/assignments/csy1018/as2/images.php?c2ab9d27b282eeded4f8535d69a01622bd008a8864ae7a0d310cbf28136e7b49);
+}
+
+
+.editor {width: 2048px;}
+.scroll {
+	width: 100vh;
+	overflow-x: scroll;
+	height: 512;
+}
+
+#texting{
+	position: absotule;
+	color: rgb(255, 174, 0);
+	display: none;
+	text-align: center;
+	padding : 5px;
+	font-weight: bold;
+}

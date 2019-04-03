@@ -1,0 +1,93 @@
+
+<html>
+	<head>
+		<title>Demo 1</title>
+		<link rel="stylesheet" href="game.css" />
+	</head>
+
+	<body>
+	
+	<div id ="startUI">
+		<!-- video bg -->
+		<video oncontextmenu="return false;"  id="videoStart" >	
+			<source src="src\video.mp4" type="video/mp4"  >			
+		</video>
+		<p id = "titleGame">Select your mode, move the mouse to the button to see more!</p>
+		<!-- main button  -->
+		<button id = "go" onclick="playms()">Click Here To Start</button>
+		<button title= "You will play in standard of game with different mode" id = "standard" onclick="stand()">STANDARD</button>
+		<button title= "Make on your own!!" id = "custom" onclick="cust()">CUSTOM</button>
+		<!-- menu 1 -->
+		<div id = "radioType">
+				<label title= "Game in easy mode, for relax" class="radioT">Easy
+					<input type="radio" name="radio" id = "easy">
+					<span class="checkmark"></span>
+				</label>
+
+				<label title= "Game will have little hard, but still interest" class="radioT">Normal
+					<input type="radio" checked="checked" name="radio" id = "normal">
+					<span class="checkmark"></span>
+				</label>
+
+				<label title= "For Professinal player, becarefull" class="radioT">Hard
+					<input type="radio" name="radio" id = "hard">
+					<span class="checkmark"></span>
+				</label>
+
+				<label title= "Can't win, should turn of computer and go sleep" class="radioT">Legendary
+					<input type="radio" name="radio" id = "legendary">
+					<span class="checkmark"></span>
+				</label>
+		</div>
+		<!-- menu 2 -->
+			<div id = "element1st">
+				<label title = "Total tree you want to create">Tree spaw (amout) : </label> <input title = "Total tree you want to create" type="number" id = "treeSpam" value="10" > <br>
+				<label>Player HP : </label> <input type="number" id = "playerHP" value="10"><br>
+				<label>Player speed : </label> <input type="number" id = "playerSpeed" value="5" > <br>
+				<label title = "Number of Arrow you want to shoot">Player Arrow Number : </label> <input title = "Number of Arrow you want to shoot" type="number" id = "playerArrowNumber" value="5" ><br>
+				<label title = "Delay of shooting player, default 500">Player Fram rate arrow : </label> <input title = "Delay of shooting player, default 500" type="number" id = "playerArrowFrame" value="500" > <br>
+			</div>
+			<div id = "inputType">
+			<div class="tab">
+				<button id = "round1" class="tablinks" onclick="tabChange(event, 'round1')">Round 1</button>
+				<button id = "round2" class="tablinks" onclick="tabChange(event, 'round2')">Round 2</button>
+				<button id = "round3" class="tablinks" onclick="tabChange(event, 'round3')">Round 3</button> <br>
+			</div>
+			<div id = "okha" class = "tabItem">
+				<label style = "font-size:10px; color:rgb(70, 5, 107); font-weight: 30px;">Amout Enemy</label><br>
+				<label title = "Enemy moving only, nothing special">Normal Enemy : </label> <input title = "Enemy moving only, nothing special" type="number" id = "enemyNormal" value="10" oninput="setNormalEnemy('enemyNormal')"> <br>
+				<label title = "Enemy can shoot">Arrow Enemy : </label> <input title = "Enemy can shoot" type="number" id = "enemyArrow" value="10" oninput="setArrowEnemy('enemyArrow')"> <br>
+				<label title = "Enemy can hide">Visible Enemy : </label> <input title = "Enemy can hide" type="number" id = "enemyVisible" value="10" oninput="setVisibleEnemy('enemyVisible')"> <br>
+				<label title = "Enemy can use both hide and shoot skill">Both Skill Enemy : </label> <input title = "Enemy can use both hide and shoot skill" type="number" id = "enemyBothSkill" value="5" oninput="setBothSkillEnemy('enemyBothSkill')"> <br>
+				<label style = "font-size:10px; color:rgb(255, 0, 13); font-weight: 30px;">Enemy property</label><br>
+				<label title = "Speed of enemy">Enemy speed : </label> <input title = "Speed of enemy" type="number" id = "enemySpeed" value="2" oninput="setEnemySpeed('enemySpeed')"> <br>
+				<label title = "Number Arrow you want enemy shoot, Warning don't more over 6, it will lag">Enemy Number Arrow : </label> <input title = "Number Arrow you want enemy shoot, Warning don't more over 6, it will lag" type="number" id = "enemyNumberArrow" value="1" oninput="setEnemyNumberArrow('enemyNumberArrow')"> <br>
+				<label title = "Type 1 or 2, no need add 000 behind">Enemy Delay Arrow (second) : </label> <input title = "Type 1 or 2, , no need add 000 behind" type="number" id = "enemyDelayArrow" value="1" oninput="setEnemyDelayArrow('enemyDelayArrow')"> <br>
+				<label title = "Type 1 or 2 , no need add 000 behind">Enemy Time Visible (second) : </label> <input title = "Type 1 or 2 , no need add 000 behind" type="number" id = "enemmyTimeVisible" value="1" oninput="setEnemyTimevisible('enemmyTimeVisible')"> <br>
+				<label title = "Type 1 or 2 , no need add 000 behind">Enemy Spam Delay (second) : </label> <input title = "Type 1 or 2 , no need add 000 behind" type="number" id = "enemySpamDelay" value="1" oninput="setEnemySpamDelay('enemySpamDelay')"> <br>
+			</div>
+		</div>
+
+		<button id = "submitRadio" onclick="submit()">PLAY</button>
+		<img title= "Return to Main Menu" id = "return" src="src\return.png" onclick="returnFun()">
+
+	</div>
+
+	<div id = "gameUI">
+		<h1 id = "texting"> </h1>
+
+	</div>
+
+	<div id ="affterGame">
+		<video muted loop autoplay oncontextmenu="return false;" >	
+			<source src="src\end.mp4" type="video/mp4"  >			
+		</video>
+		<p id ="textAG"></p>
+		<button id ="btAG" onclick="restartGame()">Play Again</button>
+	</div>
+	<script src= "GUI.js"></script>
+	<script src= "object.js"></script>
+	<script src= "game.js"></script>
+	
+	</body>
+</html>
