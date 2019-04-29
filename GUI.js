@@ -79,7 +79,7 @@ document.getElementById("standard").style.display = "none";
 document.getElementById("custom").style.display = "none";
 
 
-function stand(){
+function stand(){   //  Display standard mode
     document.getElementById("standard").style.display = "none";
     document.getElementById("custom").style.display = "none";
     document.getElementById("titleGame").style.display = "none";
@@ -92,7 +92,8 @@ function stand(){
     video.muted = false;
 }
 
-function cust(){
+function cust(){    //  Display custom mode
+    setDefaultValueCustom();
     document.getElementById("standard").style.display = "none";
     document.getElementById("custom").style.display = "none";
     document.getElementById("titleGame").style.display = "none";
@@ -121,8 +122,9 @@ function tabChange(evt, round){     //  ON CUSTOM
     setTimeout( function() { document.getElementById("okha").classList.add("animaAppear");setValueTab();}, 100)
 }
 
-function setValueTab(){
+function setValueTab(){ //  Set value of current Tab when user click
     if (currentTabDisplay == "round1"){
+
         if (enemyRound1.totalEnemyNormal != null)
             document.getElementById("enemyNormal").value = enemyRound1.totalEnemyNormal;
         else 
@@ -240,9 +242,9 @@ function setValueTab(){
     }
 }
 
-function submit(){
-    if (currentTabDisplay != null){
-        if(checkInput())
+function submit(){  //  User click play button
+    if (currentTabDisplay != null){ //  Tab return true if Tab is showing for user
+        if(checkInput())    //  Check any input is emty
         gameMode = "custom";
     }
     else if (document.getElementById("easy").checked)
@@ -256,7 +258,7 @@ function submit(){
         setGameMode(gameMode);
 }
 
-function checkInput(){
+function checkInput(){  //  Check input user
     if (document.getElementById("treeSpam").value == ""){
         alert("Please enter the tree");
         return false;
@@ -416,7 +418,7 @@ function checkInput(){
     
 }
 
-function returnFun(){
+function returnFun(){   // RETURN MAIN PAGE WHEN USER CLICK RETURN ICON
     document.getElementById("standard").style.display = "movingStandardButton 1s forwards";
     document.getElementById("custom").style.display = "movingCustomButton 1s forwards";
     document.getElementById("standard").style.display = "block";
@@ -430,13 +432,13 @@ function returnFun(){
     currentTabDisplay = null;
 }
 
-function videoLOAD(){
+function videoLOAD(){   // LOAD VIDEO
         video.load();
         video.loop = true;
         video.muted = true;
 }
 
-function displayDiv(id){
+function displayDiv(id){    
     var divGame = document.getElementById(id).children;
     for (var i = 0 ; i < divGame.length; i++) {
         divGame[i].style.display = "block";
@@ -450,7 +452,7 @@ function hideDiv(id){
     }
 }
 
-function playms(){  //  Button Start
+function playms(){  //  first button
     video.muted = false;
     video.play();
     document.getElementById("go").style.display = "none";
@@ -460,12 +462,12 @@ function playms(){  //  Button Start
     setButton();
 }
 
-function setButton(){   //  TWO MAIN BUTTON
+function setButton(){   //  set animate of TWO MAIN BUTTON
     document.getElementById("standard").style.animation = "movingStandardButton 1s forwards";
     document.getElementById("custom").style.animation = "movingCustomButton 1s forwards";
 }
 
-function setGameMode(mode){
+function setGameMode(mode){ // Set mode for game
 
     if (mode == null)
         return;
@@ -526,8 +528,8 @@ function setGameMode(mode){
         amoutArrowPlayer = Number(amoutArrowPlayer);
         timeDelayShootPlayer = document.getElementById("playerArrowFrame").value;
         timeDelayShootPlayer = Number(timeDelayShootPlayer);
-        treeSpaw("custom");
-        enemyRound1.delayArrow += "000";
+        treeSpaw("default");
+        enemyRound1.delayArrow += "000";    // convert to correct type
         enemyRound1.delayArrow = Number(enemyRound1.delayArrow);
         enemyRound1.visibleTime += "000";
         enemyRound1.visibleTime = Number(enemyRound1.visibleTime);
@@ -586,7 +588,9 @@ function setEnemyRound(Object, totalEnemyNormal, totalEnemyBow, totalEnemyVisibl
 
 }
 
-function setNormalEnemy(id){
+// Set value for input
+
+function setNormalEnemy(id){ 
     var value = document.getElementById(id).value;
     if(currentTabDisplay == "round1")
         enemyRound1.totalEnemyNormal = value;
@@ -676,15 +680,19 @@ function setEnemySpamDelay(id){
         enemyRound3.timeDelaySpam = value;
 }
 
+
+// END Set value for input
+
+
 function treeSpaw(value){
     if (value == "default"){
-    createTree(null, null);
-	createTree(250, 50);
-	createTree(900, 450);
-	createTree(500, 500);
-	createTree(200, 800);
-	createTree(900, 800);
-	createTree(700, 200);
+    createTree(29, 48);
+	createTree(65, 128);
+	createTree(14, 128);
+	createTree(36, 80);
+	createTree(65, 72);
+	createTree(18, 8);
+	createTree(51, 32);
     }
     else{
         for (var i = 0; i < document.getElementById("treeSpam").value; i++){
@@ -712,7 +720,7 @@ function createTree(x, y){
 	totalTree++;
 }
 
-function playingSound(object, type){
+function playingSound(object, type){  
 	if (!object.paused && type){
 		object.pause();
 		object.currentTime = 0;
@@ -773,4 +781,12 @@ function playerResspaw(){
 	player.style.transform = 'rotate(0deg)'; 
 	showText("Respawn!!!");
 	hitArrow = false;
+}
+
+function setDefaultValueCustom(){ //  Set Default value for custom
+    setEnemyRound(enemyRound1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+        
+    setEnemyRound(enemyRound2, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+        
+    setEnemyRound(enemyRound3, 1, 1, 1, 1, 1, 1, 1, 1, 1);
 }

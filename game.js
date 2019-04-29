@@ -178,10 +178,10 @@ function arrowUpdate(){
 		}
 		
 		var LeftArrow = leftTemp;
-		var RightArrow = leftTemp + 10;
-		var TopArrow = topTemp - 30;
-		var DownArrow = topTemp;
-		
+		var RightArrow = leftTemp + 32;
+		var TopArrow = topTemp - 20;
+		var DownArrow = topTemp + 10;
+	
 		checkArrow(LeftArrow, RightArrow, TopArrow, DownArrow, topTemp, leftTemp, arrowList[i]);
 
 	}	
@@ -194,6 +194,7 @@ function checkArrow(LeftArrow, RightArrow, TopArrow, DownArrow, topTemp, leftTem
 		var rightTree = treeList[id].object.offsetLeft + 130;
 		var topTree = treeList[id].object.offsetTop - 20;
 		var downTree = treeList[id].object.offsetTop + 140;
+
 			if (RightArrow > leftTree && RightArrow < rightTree && topTemp > topTree && topTemp < downTree)
 				objectA.hitTree = true;
 			else if (LeftArrow < rightTree && LeftArrow > leftTree && topTemp > topTree && topTemp < downTree)

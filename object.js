@@ -33,8 +33,8 @@ var tree = function(left, top){
 	this.object.setAttribute('src', 'images/tree.png');
 	document.getElementById("gameUI").appendChild(this.object);
 	if (left != null && top != null){
-	this.object.style.left = this.left + "px";
-	this.object.style.top = this.top + "px";
+		this.object.style.left = this.left + "vw";
+		this.object.style.top = this.top + "vh";
 	}
 }
 
@@ -126,7 +126,7 @@ var enemy = function(left, top, id, degree, speed, enebleSkill, spamAmout, timeD
 	if (this.enebleHide)
 		setTimeout( () => {this.delayHide = false; this.active = false;}, 10000); // Await First Time
 	
-	this.hide = function(){
+	this.hide = function(){	//	Hide and appear SKill
 		if(this.enebleHide && !this.delayHide){
 			this.object.classList.remove('stand');
 			this.object.classList.remove('appear');
@@ -149,9 +149,9 @@ var enemy = function(left, top, id, degree, speed, enebleSkill, spamAmout, timeD
 			this.allowMove = false; 
 			playingSound(enemyHideA, false);
 			this.object.removeEventListener("animationend", self.setVarible);
-			this.object.addEventListener("animationend",self.setVarible, false);
+			this.object.addEventListener("animationend",self.setVarible, false);	//	Set time hiding
 		}
-		else if (this.enebleHide && !this.hiding && this.delayHide && !this.active){
+		else if (this.enebleHide && !this.hiding && this.delayHide && !this.active){	//	
 			this.object.classList.remove('stand');
 			this.object.classList.remove('appear');
 			this.object.classList.remove('walk');
@@ -171,8 +171,8 @@ var enemy = function(left, top, id, degree, speed, enebleSkill, spamAmout, timeD
 			this.active = true;
 			self.allowMove = true;
 			this.waitingAnima = 500;
-			setTimeout( () => {playingSound(enemyAppearA, false);}, 3000);
-			setTimeout( ()=> {this.delayHide = false}, 15000);
+			setTimeout( () => {playingSound(enemyAppearA, false);}, 3000); // Enemy appear
+			setTimeout( ()=> {this.delayHide = false}, 15000); // Delay for hide skill
 		}
 		
 		
@@ -180,12 +180,12 @@ var enemy = function(left, top, id, degree, speed, enebleSkill, spamAmout, timeD
 	
 	this.setVarible = function(){
 			if (self.hiding)
-				setTimeout( () => {self.hiding = false;} ,self.timeHiding + 2000);
+				setTimeout( () => {self.hiding = false;} ,self.timeHiding + 2000);	//	Set time hiding
 		}
 	
 	this.useSkill = function(newDegree, player){
 		
-		if(this.delayskill == false && self.enebleSkill && this.hiding == false){
+		if(this.delayskill == false && self.enebleSkill && this.hiding == false){	//	Check if not hiding
 			this.object.classList.remove('stand');
 			this.object.classList.remove('appear');
 			this.object.classList.remove('walk');
@@ -204,11 +204,11 @@ var enemy = function(left, top, id, degree, speed, enebleSkill, spamAmout, timeD
 				playingSound(enemyFireA, true);
 			}
 			self.delayskill = true;
-			if(!self.waiting){
-			self.waiting = true;
-			setTimeout( () => {this.waiting = false;}, 1000);	//	Finish shoot Animation
+			if(!self.waiting){	//	Not Waiting
+				self.waiting = true;
+				setTimeout( () => {this.waiting = false;}, 1000);	//	Finish shoot Animation
 			}
-			setTimeout( () => {this.delayskill = false;}, timeDeplay);	//	Skill delay
+				setTimeout( () => {this.delayskill = false;}, timeDeplay);	//	Skill delay
 		
 		}
 	}
