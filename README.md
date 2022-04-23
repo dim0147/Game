@@ -1,3 +1,3 @@
 # game-wukong
 - Game using HTML CSS
-- Demo: https://github.com/dim0147/game-wukong
+- Demo: https://dim0147.github.io/game-wukong
